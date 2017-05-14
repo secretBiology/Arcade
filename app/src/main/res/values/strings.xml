@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Arcade</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+
+    <string name="oops">Oops…</string>
+
+    <!--Login Related-->
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="authenticating">Authenticating</string>
+    <string name="loading_data">Loading data</string>
+    <string name="login_invalid_email">Invalid email address.</string>
+    <string name="login_invalid_password">Password should be greater than 5 characters.</string>
+
+    <!--first time-->
+    <string name="first_time_setup">First Time Setup</string>
+    <string name="child">Child</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="alien">Alien</string>
+    <string name="robot">Robot</string>
+    <string name="other">Other</string>
+    <string name="first_time_welcome">Welcome to Arcade!\nTell us about yourself.</string>
+    <string name="first_time_icon">What are you?</string>
+    <string name="first_time_name">What should we call you?</string>
+    <string name="first_time_select_profile">Select profile icon</string>
+    <string name="lets_go">Let\'s go!</string>
+    <string name="first_time_name_error">Name can not be empty!</string>
 </resources>
