@@ -7,7 +7,7 @@ import com.secretbiology.arcade.common.ProfileIcons;
  * Code is released under MIT license
  */
 
-class IconModel {
+public class IconModel {
     private int icon;
     private int title;
     private boolean isSelected;

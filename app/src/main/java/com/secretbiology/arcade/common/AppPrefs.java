@@ -19,6 +19,8 @@ public class AppPrefs extends Preferences {
     private static final String FIRST_TIME_SETUP = "firstTimeSetup";
     private static final String LAST_LOGIN = "lastLogin";
     private static final String LAST_SYNC = "lastSync";
+    private static final String CURRENT_GAME = "currentGame";
+    private static final String CURRENT_TABLE = "currentTable";
 
 
     public AppPrefs(Context context) {
@@ -87,6 +89,30 @@ public class AppPrefs extends Preferences {
 
     public void setLastSync(String timestamp) {
         put(LAST_SYNC, timestamp);
+    }
+
+    public String getCurrentGame() {
+        return get(CURRENT_GAME, "null");
+    }
+
+    public String getCurrentTable() {
+        return get(CURRENT_TABLE, "null");
+    }
+
+    public boolean wasInGame() {
+        return !getCurrentGame().equals("null");
+    }
+
+    public boolean wasInTable() {
+        return !getCurrentTable().equals("null");
+    }
+
+    public void setCurrentGame(String gameID) {
+        put(CURRENT_GAME, gameID);
+    }
+
+    public void setCurrentTable(String gameID) {
+        put(CURRENT_TABLE, gameID);
     }
 
 }

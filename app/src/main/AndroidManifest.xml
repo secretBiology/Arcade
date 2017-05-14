@@ -26,7 +26,10 @@
 
         <service
             android:name=".backgroud.SyncService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".appsetup.dashboard.Dashboard" />
+        <activity android:name=".appsetup.GameSetup"></activity>
     </application>
 
 </manifest>

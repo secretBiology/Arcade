@@ -13,6 +13,7 @@ public class User {
     private String lastSync;
     private String gender;
     private int profileIcon;
+    private String currentGame;
 
     public User() {
     }
@@ -71,5 +72,13 @@ public class User {
 
     public void setLastSync(String lastSync) {
         this.lastSync = lastSync;
+    }
+
+    public String getCurrentGame() {
+        return currentGame;
+    }
+
+    public void setCurrentGame(String currentGame) {
+        this.currentGame = currentGame;
     }
 }

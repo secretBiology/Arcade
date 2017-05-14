@@ -106,9 +106,9 @@ public class FirstTimeUser extends AppCompatActivity {
             @Override
             public void clicked(int position) {
                 for (IconModel m : profileIcons) {
-                    prefs.setProfileIcon(m.getProfileIcon().getID());
                     if (profileIcons.indexOf(m) == position) {
                         m.setSelected(true);
+                        prefs.setProfileIcon(m.getProfileIcon().getID());
                     } else {
                         m.setSelected(false);
                     }
@@ -134,6 +134,7 @@ public class FirstTimeUser extends AppCompatActivity {
             user.setName(name.getText());
             user.setLastSync(General.timeStamp());
             user.setGender(prefs.getGender());
+            user.setLastLogin(prefs.getLastLogin());
             user.setProfileIcon(prefs.getProfileIcon());
 
             auth.getCurrentUser().getToken(false).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {

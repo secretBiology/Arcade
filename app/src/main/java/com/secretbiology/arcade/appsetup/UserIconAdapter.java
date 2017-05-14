@@ -23,13 +23,13 @@ import butterknife.ButterKnife;
  * Code is released under MIT license
  */
 
-class UserIconAdapter extends RecyclerView.Adapter<UserIconAdapter.IconView> {
+public class UserIconAdapter extends RecyclerView.Adapter<UserIconAdapter.IconView> {
 
     private List<IconModel> modelList;
     private OnIconSelected selected;
 
 
-    UserIconAdapter(List<IconModel> modelList) {
+    public UserIconAdapter(List<IconModel> modelList) {
         this.modelList = modelList;
     }
 
@@ -89,11 +89,11 @@ class UserIconAdapter extends RecyclerView.Adapter<UserIconAdapter.IconView> {
         }
     }
 
-    void seOnIconClick(OnIconSelected s) {
+    public void seOnIconClick(OnIconSelected s) {
         selected = s;
     }
 
-    interface OnIconSelected {
+    public interface OnIconSelected {
         void clicked(int position);
     }
 }

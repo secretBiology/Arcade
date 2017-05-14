@@ -28,4 +28,13 @@
     <string name="first_time_select_profile">Select profile icon</string>
     <string name="lets_go">Let\'s go!</string>
     <string name="first_time_name_error">Name can not be empty!</string>
+
+    <!--game lobby-->
+    <string name="game_lobby">Game Lobby</string>
+    <string name="proxy_warning">Unfortunately, our platform does not support proxy networks (yet). Please try again by connecting some non-proxy internet service. </string>
+    <string name="searching_games">Searching for games…</string>
+    <string name="no_games_found">No games found.\nYou can create new one or swipe down to refresh!</string>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="log_out">Log out</string>
 </resources>

@@ -1,7 +1,10 @@
 package com.secretbiology.arcade.common;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -19,7 +22,6 @@ import android.widget.TextView;
 import com.secretbiology.arcade.R;
 import com.secretbiology.helpers.general.General;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -29,15 +31,9 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.nav_view)
     NavigationView navigationView;
-    @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
-    @BindView(R.id.toolbar)
     public Toolbar toolbar;
-    @BindView(R.id.base_view)
-    ViewStub viewStub;
-
     public AppPrefs prefs;
 
 
@@ -45,7 +41,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.base_layout);
-        ButterKnife.bind(this);
+        navigationView = ButterKnife.findById(this, R.id.nav_view);
+        toolbar = ButterKnife.findById(this, R.id.toolbar);
+        drawer = ButterKnife.findById(this, R.id.drawer_layout);
         prefs = new AppPrefs(getApplicationContext());
         setUpDrawer();
         setUpActivity();
@@ -71,15 +69,25 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     }
 
     private void setUpActivity() {
+        ViewStub viewStub = ButterKnife.findById(this, R.id.base_view);
         viewStub.setLayoutResource(setLayout());
         viewStub.inflate();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull final MenuItem item) {
         // Handle navigation view item clicks here.
-        //// TODO: 14-05-2017
+        final Activity activity = this;
+        if (activity.getClass() != new Helper().getNavClass(item.getItemId())) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(activity, new Helper().getNavClass(item.getItemId())));
+                    animateTransition();
+                }
+            }, 300);
+        }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

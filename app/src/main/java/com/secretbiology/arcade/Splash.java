@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.secretbiology.arcade.appsetup.GameLobby;
+import com.secretbiology.arcade.appsetup.dashboard.Dashboard;
 import com.secretbiology.arcade.appsetup.Login;
 import com.secretbiology.arcade.common.AppPrefs;
 
@@ -16,7 +16,7 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.splash);
         Intent intent;
         if (new AppPrefs(getApplicationContext()).isFirstTimeSetupCompleted()) {
-            intent = new Intent(this, GameLobby.class);
+            intent = new Intent(this, Dashboard.class);
         } else {
             intent = new Intent(this, Login.class);
         }
