@@ -1,4 +1,4 @@
-package com.secretbiology.arcade.appsetup;
+package com.secretbiology.arcade.appsetup.lobby;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

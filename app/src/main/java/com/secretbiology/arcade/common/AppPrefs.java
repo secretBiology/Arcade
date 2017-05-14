@@ -59,12 +59,12 @@ public class AppPrefs extends Preferences {
         return get(PROFILE_ICON, 0);
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         put(GENDER, gender);
     }
 
-    public String getGender() {
-        return get(GENDER, "other");
+    public int getGender() {
+        return get(GENDER, Gender.OTHER.getID());
     }
 
     public boolean isFirstTimeSetupCompleted() {

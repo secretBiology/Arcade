@@ -14,6 +14,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GetTokenResult;
 import com.secretbiology.arcade.R;
+import com.secretbiology.arcade.appsetup.lobby.GameLobby;
 import com.secretbiology.arcade.backgroud.SyncService;
 import com.secretbiology.arcade.common.AppPrefs;
 import com.secretbiology.arcade.common.Helper;

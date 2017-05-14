@@ -7,8 +7,8 @@ import android.content.DialogInterface;
 
 import com.secretbiology.arcade.R;
 import com.secretbiology.arcade.Splash;
-import com.secretbiology.arcade.appsetup.GameLobby;
 import com.secretbiology.arcade.appsetup.dashboard.Dashboard;
+import com.secretbiology.arcade.appsetup.lobby.GameLobby;
 
 import static android.R.string.ok;
 
@@ -38,7 +38,7 @@ public class Helper {
         return R.drawable.emo_face1;
     }
 
-    public Class getNavClass(int navID) {
+    Class getNavClass(int navID) {
         switch (navID) {
             case R.id.nav_dashboard:
                 return Dashboard.class;
@@ -48,24 +48,21 @@ public class Helper {
         return Splash.class;
     }
 
-    public int getGenderIcon(Context context, String string) {
-        String s = string.toLowerCase().trim();
-        if (s.equals(formatString(context, R.string.child))) {
-            return R.drawable.emo_baby;
-        } else if (s.equals(formatString(context, R.string.male))) {
-            return R.drawable.emo_boy;
-        } else if (s.equals(formatString(context, R.string.female))) {
-            return R.drawable.emo_girl;
-        } else if (s.equals(formatString(context, R.string.alien))) {
-            return R.drawable.emo_alien;
-        } else if (s.equals(formatString(context, R.string.robot))) {
-            return R.drawable.emo_robot;
-        } else {
-            return R.drawable.emo_unknown;
+    public static Gender getGenderByIcon(int iconID) {
+        for (Gender g : Gender.values()) {
+            if (g.getIcon() == iconID) {
+                return g;
+            }
         }
+        return Gender.OTHER;
     }
 
-    private String formatString(Context context, int id) {
-        return context.getString(id).toLowerCase().trim();
+    public static Gender getGenderByID(int id) {
+        for (Gender g : Gender.values()) {
+            if (g.getID() == id) {
+                return g;
+            }
+        }
+        return Gender.OTHER;
     }
 }

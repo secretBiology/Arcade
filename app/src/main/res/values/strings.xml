@@ -36,5 +36,6 @@
     <string name="no_games_found">No games found.\nYou can create new one or swipe down to refresh!</string>
 
     <string name="dashboard">Dashboard</string>
+    <string name="select_profile_icon">Select Profile Icon</string>
     <string name="log_out">Log out</string>
 </resources>

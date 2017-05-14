@@ -7,6 +7,7 @@ package com.secretbiology.arcade.appsetup.dashboard;
 
 class DashBoardItem {
 
+    private int action;
     private int icon;
     private String description;
     private String subDescription;
@@ -14,7 +15,8 @@ class DashBoardItem {
     DashBoardItem() {
     }
 
-    public DashBoardItem(int icon, String description, String subDescription) {
+    public DashBoardItem(int action, int icon, String description, String subDescription) {
+        this.action = action;
         this.icon = icon;
         this.description = description;
         this.subDescription = subDescription;
@@ -47,5 +49,13 @@ class DashBoardItem {
 
     public void setSubDescription(String subDescription) {
         this.subDescription = subDescription;
+    }
+
+    public int getAction() {
+        return action;
+    }
+
+    public void setAction(int action) {
+        this.action = action;
     }
 }

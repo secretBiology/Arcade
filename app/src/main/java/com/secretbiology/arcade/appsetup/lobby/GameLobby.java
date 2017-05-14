@@ -1,4 +1,4 @@
-package com.secretbiology.arcade.appsetup;
+package com.secretbiology.arcade.appsetup.lobby;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;

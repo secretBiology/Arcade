@@ -16,7 +16,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GetTokenResult;
 import com.secretbiology.arcade.R;
+import com.secretbiology.arcade.appsetup.lobby.GameLobby;
 import com.secretbiology.arcade.common.AppPrefs;
+import com.secretbiology.arcade.common.Gender;
 import com.secretbiology.arcade.common.Helper;
 import com.secretbiology.arcade.common.ProfileIcons;
 import com.secretbiology.arcade.network.RetroCalls;
@@ -67,7 +69,7 @@ public class FirstTimeUser extends AppCompatActivity {
             finish();
         }
 
-        prefs.setGender(getString(R.string.other));
+        prefs.setGender(Gender.OTHER.getID());
         prefs.setProfileIcon(General.randInt(0, ProfileIcons.values().length - 1));
         // Set centered title
         if (getSupportActionBar() != null) {
@@ -88,7 +90,7 @@ public class FirstTimeUser extends AppCompatActivity {
             public void clicked(int position) {
                 for (IconModel m : modelList) {
                     if (modelList.indexOf(m) == position) {
-                        prefs.setGender(getString(m.getTitle()));
+                        prefs.setGender(Helper.getGenderByIcon(m.getIcon()).getID());
                         m.setSelected(true);
                     } else {
                         m.setSelected(false);
@@ -177,12 +179,16 @@ public class FirstTimeUser extends AppCompatActivity {
 
     private List<IconModel> getIconList() {
         List<IconModel> models = new ArrayList<>();
-        models.add(new IconModel(R.drawable.emo_baby, R.string.child));
-        models.add(new IconModel(R.drawable.emo_boy, R.string.male));
-        models.add(new IconModel(R.drawable.emo_girl, R.string.female));
-        models.add(new IconModel(R.drawable.emo_alien, R.string.alien));
-        models.add(new IconModel(R.drawable.emo_robot, R.string.robot));
-        models.add(new IconModel(R.drawable.emo_unknown, R.string.other, true));
+        for (Gender g : Gender.values()) {
+            models.add(new IconModel(g.getIcon(), g.getName()));
+        }
+
+        for (IconModel m : models) {
+            if (m.getIcon() == Gender.OTHER.getIcon()) {
+                m.setSelected(true);
+            }
+        }
+        Collections.shuffle(models);
         return models;
     }
 

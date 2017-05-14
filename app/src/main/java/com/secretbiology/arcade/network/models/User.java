@@ -11,7 +11,7 @@ public class User {
     private String uid;
     private String lastLogin;
     private String lastSync;
-    private String gender;
+    private int gender;
     private int profileIcon;
     private String currentGame;
 
@@ -50,11 +50,11 @@ public class User {
         this.lastLogin = lastLogin;
     }
 
-    public String getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 

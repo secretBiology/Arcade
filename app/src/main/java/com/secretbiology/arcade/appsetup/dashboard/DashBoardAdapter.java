@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.DashView> {
 
     private List<DashBoardItem> itemList;
+    private OnItemClick itemClick;
 
     DashBoardAdapter(List<DashBoardItem> itemList) {
         this.itemList = itemList;
@@ -33,7 +34,7 @@ class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.DashView> {
     }
 
     @Override
-    public void onBindViewHolder(DashView holder, int position) {
+    public void onBindViewHolder(final DashView holder, int position) {
         DashBoardItem item = itemList.get(position);
         holder.title.setText(item.getDescription());
         holder.icon.setImageResource(item.getIcon());
@@ -43,6 +44,12 @@ class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.DashView> {
         } else {
             holder.subTitle.setVisibility(View.GONE);
         }
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemClick.doAction(holder.getLayoutPosition());
+            }
+        });
     }
 
     @Override
@@ -64,5 +71,13 @@ class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.DashView> {
             subTitle = ButterKnife.findById(itemView, R.id.dash_item_subtitle);
             layout = ButterKnife.findById(itemView, R.id.dash_item_layout);
         }
+    }
+
+    void setOnItemClick(OnItemClick click){
+        itemClick = click;
+    }
+
+    interface OnItemClick{
+        void doAction(int position);
     }
 }

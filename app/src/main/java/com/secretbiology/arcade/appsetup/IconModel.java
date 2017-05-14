@@ -28,7 +28,7 @@ public class IconModel {
         this.profileIcon = profileIcon;
     }
 
-    int getIcon() {
+    public int getIcon() {
         return icon;
     }
 

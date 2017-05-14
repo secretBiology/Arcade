@@ -11,6 +11,7 @@ import com.secretbiology.arcade.common.AppPrefs;
 import com.secretbiology.arcade.common.BaseActivity;
 import com.secretbiology.arcade.common.Helper;
 import com.secretbiology.arcade.common.ProfileIcons;
+import com.secretbiology.helpers.general.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ public class Dashboard extends BaseActivity implements DashBoardSheet.onIconClic
         ButterKnife.bind(this);
 
         prefs = new AppPrefs(getApplicationContext());
+        itemList = new ArrayList<>();
         setDashBoardItems();
 
         adapter = new DashBoardAdapter(itemList);
@@ -44,17 +46,28 @@ public class Dashboard extends BaseActivity implements DashBoardSheet.onIconClic
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         profileIcon.setImageResource(Helper.getProfileIcon(prefs.getProfileIcon()));
+        adapter.setOnItemClick(new DashBoardAdapter.OnItemClick() {
+            @Override
+            public void doAction(int position) {
+                if(itemList.get(position).getAction()==3){
+                    BottomSheetDialogFragment bottomSheetDialogFragment = DashBoardSheet.newInstance(true);
+                    bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+                }
+            }
+        });
 
     }
 
     private void setDashBoardItems() {
 
-        itemList = new ArrayList<>();
-        itemList.add(new DashBoardItem(R.drawable.icon_person, prefs.getName(), "Screen name"));
-        itemList.add(new DashBoardItem(R.drawable.icon_email, prefs.getEmail(), "Portal key"));
-        itemList.add(new DashBoardItem(R.drawable.icon_game_lobby, prefs.getUID(), "Secret identification number"));
-        itemList.add(new DashBoardItem(new Helper().getGenderIcon(getApplicationContext(), prefs.getGender()),
-                prefs.getGender(), "Species type"));
+        Log.inform(prefs.getGender());
+
+        itemList.clear();
+        itemList.add(new DashBoardItem(0, R.drawable.icon_person, prefs.getName(), "Screen name"));
+        itemList.add(new DashBoardItem(1, R.drawable.icon_email, prefs.getEmail(), "Portal key"));
+        itemList.add(new DashBoardItem(2, R.drawable.icon_game_lobby, prefs.getUID(), "Secret identification number"));
+        itemList.add(new DashBoardItem(3, Helper.getGenderByID(prefs.getGender()).getIcon(),
+                getString(Helper.getGenderByID(prefs.getGender()).getName()), "Species type"));
 
     }
 
@@ -70,15 +83,22 @@ public class Dashboard extends BaseActivity implements DashBoardSheet.onIconClic
 
     @OnClick(R.id.dash_profile_icon)
     public void showSheet() {
-        BottomSheetDialogFragment bottomSheetDialogFragment = new DashBoardSheet();
+        BottomSheetDialogFragment bottomSheetDialogFragment = DashBoardSheet.newInstance(false);
         bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
     }
 
 
     @Override
-    public void selected(ProfileIcons iconID) {
-        profileIcon.setImageResource(iconID.getIcon());
-        prefs.setProfileIcon(iconID.getID());
+    public void selectedProfile(ProfileIcons icon) {
+        profileIcon.setImageResource(icon.getIcon());
+        prefs.setProfileIcon(icon.getID());
         //// TODO: 14-05-2017 update on cloud
+    }
+
+    @Override
+    public void selectedGender(int iconID) {
+        prefs.setGender(Helper.getGenderByIcon(iconID).getID());
+        setDashBoardItems();
+        adapter.notifyDataSetChanged();
     }
 }
