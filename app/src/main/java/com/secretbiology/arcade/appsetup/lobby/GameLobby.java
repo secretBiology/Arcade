@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -92,9 +93,16 @@ public class GameLobby extends BaseActivity implements SwipeRefreshLayout.OnRefr
                 if (dataSnapshot.getValue() == null) {
                     games.clear();
                     adapter.notifyDataSetChanged();
+                    emptyText.setVisibility(View.VISIBLE);
                     emptyText.setText(getString(R.string.no_games_found));
                 } else {
+                    emptyText.setVisibility(View.GONE);
                     Log.inform(dataSnapshot);
+                    games.clear();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        games.add(snapshot.getValue(GameDetails.class));
+                    }
+                    adapter.notifyDataSetChanged();
                 }
             }
 

@@ -7,9 +7,11 @@ package com.secretbiology.arcade.network.models;
 
 public class GameDetails {
 
-    private String gameID;
+    private int gameID;
+    private String tableID;
     private String gameName;
     private String gameCreator;
+    private String gameCreatorUID;
     private String gameCreationTime;
     private int numberOfPlayers;
     private int maxPlayers;
@@ -17,11 +19,11 @@ public class GameDetails {
     public GameDetails() {
     }
 
-    public String getGameID() {
+    public int getGameID() {
         return gameID;
     }
 
-    public void setGameID(String gameID) {
+    public void setGameID(int gameID) {
         this.gameID = gameID;
     }
 
@@ -63,5 +65,21 @@ public class GameDetails {
 
     public void setMaxPlayers(int maxPlayers) {
         this.maxPlayers = maxPlayers;
+    }
+
+    public String getGameCreatorUID() {
+        return gameCreatorUID;
+    }
+
+    public String getTableID() {
+        return tableID;
+    }
+
+    public void setTableID(String tableID) {
+        this.tableID = tableID;
+    }
+
+    public void setGameCreatorUID(String gameCreatorUID) {
+        this.gameCreatorUID = gameCreatorUID;
     }
 }

@@ -4,6 +4,7 @@
     <string name="navigation_drawer_close">Close</string>
 
     <string name="oops">Oops…</string>
+    <string name="are_you_sure">Are you sure?</string>
 
     <!--Login Related-->
     <string name="login">Login</string>
@@ -32,10 +33,25 @@
     <!--game lobby-->
     <string name="game_lobby">Game Lobby</string>
     <string name="proxy_warning">Unfortunately, our platform does not support proxy networks (yet). Please try again by connecting some non-proxy internet service. </string>
-    <string name="searching_games">Searching for games…</string>
-    <string name="no_games_found">No games found.\nYou can create new one or swipe down to refresh!</string>
+    <string name="searching_games">Searching for game…</string>
+    <string name="no_games_found">No game found.\nYou can create new one or swipe down to refresh!</string>
 
     <string name="dashboard">Dashboard</string>
     <string name="select_profile_icon">Select Profile Icon</string>
     <string name="log_out">Log out</string>
+    <string name="change_pass">Change Password</string>
+    <string name="change_pass_message">Change password link will be sent to your email address \'%s\'. Do you want to continue?</string>
+    <string name="log_out_message">You are about to log out of your account. You will not able to play multiplayer game.
+        Are you sure you want to log out?</string>
+
+
+    <string name="create_game">Create Game</string>
+    <string name="learn_game">Learn Game</string>
+    <string name="available_games">Currently available game</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="table_id">Table ID %s</string>
+
+    <string name="battleship">Battleship</string>
+    <string name="battleship_details">This is classical guessing game for two players.</string>
+    <string name="battleship_url">"https://en.wikipedia.org/wiki/Battleship_(game)"</string>
 </resources>

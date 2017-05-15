@@ -2,8 +2,8 @@ package com.secretbiology.arcade.common;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
+import android.support.annotation.Nullable;
 
 import com.secretbiology.arcade.R;
 import com.secretbiology.arcade.Splash;
@@ -64,5 +64,15 @@ public class Helper {
             }
         }
         return Gender.OTHER;
+    }
+
+    @Nullable
+    public static Game getGameByID(int id) {
+        for (Game g : Game.values()) {
+            if (g.getID() == id) {
+                return g;
+            }
+        }
+        return null;
     }
 }

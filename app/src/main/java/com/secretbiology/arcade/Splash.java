@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.secretbiology.arcade.appsetup.GameSetup;
+import com.secretbiology.arcade.appsetup.setup.GameSetup;
 import com.secretbiology.arcade.appsetup.Login;
 import com.secretbiology.arcade.common.AppPrefs;
 

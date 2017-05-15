@@ -27,6 +27,10 @@ public class AppPrefs extends Preferences {
         super(context);
     }
 
+    public void clear() {
+        clearAll();
+    }
+
     public void setEmail(String email) {
         put(EMAIL, email);
     }

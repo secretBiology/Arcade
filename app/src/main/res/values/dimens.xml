@@ -10,9 +10,12 @@
 
     <dimen name="user_icon_size">30sp</dimen>
     <dimen name="game_lobby_icon_size">50sp</dimen>
+    <dimen name="game_status_indicator_size">25sp</dimen>
 
     <dimen name="dashboard_icon">75sp</dimen>
     <dimen name="dashboard_bottom_sheet_height">200sp</dimen>
+
+    <dimen name="game_details_icon_size">50sp</dimen>
 
     <!--To remove error by Input Layout -->
     <item name="visible" type="id" />
