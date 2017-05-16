@@ -1,4 +1,4 @@
-package com.secretbiology.arcade.common;
+package com.secretbiology.arcade.constants;
 
 import com.secretbiology.arcade.R;
 
@@ -7,7 +7,7 @@ import com.secretbiology.arcade.R;
  * Code is released under MIT license
  */
 
-public enum Gender {
+public enum Species {
 
     OTHER(0, R.drawable.emo_unknown, R.string.other),
     CHILD(1, R.drawable.emo_baby, R.string.child),
@@ -20,7 +20,7 @@ public enum Gender {
     private int icon;
     private int name;
 
-    Gender(int ID, int icon, int name) {
+    Species(int ID, int icon, int name) {
         this.ID = ID;
         this.icon = icon;
         this.name = name;
@@ -36,5 +36,14 @@ public enum Gender {
 
     public int getName() {
         return name;
+    }
+
+    public static Species getByID(int id) {
+        for (Species species : Species.values()) {
+            if (species.getID() == id) {
+                return species;
+            }
+        }
+        return OTHER;
     }
 }

@@ -17,19 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".appsetup.Login"
-            android:theme="@style/RegularTheme" />
-        <activity
-            android:name=".appsetup.FirstTimeUser"
-            android:theme="@style/RegularTheme" />
-        <activity android:name=".appsetup.lobby.GameLobby" />
-
-        <service
-            android:name=".backgroud.SyncService"
-            android:exported="false" />
-
-        <activity android:name=".appsetup.dashboard.Dashboard" />
-        <activity android:name=".appsetup.setup.GameSetup"></activity>
+            android:name=".user.Dashboard"
+            android:label="@string/dashboard" />
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
     <LinearLayout
@@ -39,19 +40,20 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <ViewStub
+        <FrameLayout
             android:id="@+id/base_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+        </FrameLayout>
     </LinearLayout>
 
-
     <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:id="@+id/navigation_view"
+        android:layout_width="@dimen/nav_bar_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true" />
-
-
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/base_header"
+        app:menu="@menu/drawer_menu" />
 </android.support.v4.widget.DrawerLayout>

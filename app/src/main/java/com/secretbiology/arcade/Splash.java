@@ -2,26 +2,21 @@ package com.secretbiology.arcade;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-import com.secretbiology.arcade.appsetup.setup.GameSetup;
-import com.secretbiology.arcade.appsetup.Login;
-import com.secretbiology.arcade.common.AppPrefs;
+import com.secretbiology.arcade.common.BaseActivity;
+import com.secretbiology.arcade.user.Dashboard;
 
-public class Splash extends AppCompatActivity {
+public class Splash extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-        Intent intent;
-        if (new AppPrefs(getApplicationContext()).isFirstTimeSetupCompleted()) {
-            intent = new Intent(this, GameSetup.class);
-        } else {
-            intent = new Intent(this, Login.class);
-        }
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        startActivity(new Intent(this, Dashboard.class));
+    }
+
+    @Override
+    protected int setNavigationMenu() {
+        return 0;
     }
 }
