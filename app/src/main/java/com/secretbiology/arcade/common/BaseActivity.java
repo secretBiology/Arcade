@@ -21,7 +21,7 @@ import android.widget.FrameLayout;
 
 import com.secretbiology.arcade.R;
 import com.secretbiology.arcade.Splash;
-import com.secretbiology.arcade.user.Dashboard;
+import com.secretbiology.arcade.player.Dashboard;
 import com.secretbiology.helpers.general.General;
 
 import butterknife.ButterKnife;

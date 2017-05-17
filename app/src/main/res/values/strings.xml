@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Arcade</string>
+
+    <string name="email">Email</string>
+    <string name="uid">UID</string>
+    <string name="species">Species</string>
+
     <string name="dashboard">Dashboard</string>
+    <string name="log_out">Log Out</string>
+    <string name="dashboard_game_played">Games Played</string>
+    <string name="dashboard_game_won">Games Won</string>
+    <string name="dashboard_number_of_games">No of Games</string>
 </resources>

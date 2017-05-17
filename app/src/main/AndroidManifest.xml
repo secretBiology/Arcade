@@ -17,8 +17,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user.Dashboard"
-            android:label="@string/dashboard" />
+            android:name=".player.Dashboard"
+            android:label="@string/dashboard"
+            android:theme="@style/DashBoardStyle" />
     </application>
 
 </manifest>

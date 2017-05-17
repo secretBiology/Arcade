@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.secretbiology.arcade.common.BaseActivity;
-import com.secretbiology.arcade.user.Dashboard;
+import com.secretbiology.arcade.player.Dashboard;
 
 public class Splash extends BaseActivity {
 

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--General-->
+    <dimen name="horizontal_margin">16sp</dimen>
     <dimen name="nav_bar_width">280sp</dimen>
     <dimen name="nav_bar_icon_size">50sp</dimen>
     <dimen name="nav_margin_start">16sp</dimen>
     <dimen name="nav_margin_end">16sp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
+
+    <dimen name="dashboard_profile_size">75sp</dimen>
+    <dimen name="dashboard_icon_size">45sp</dimen>
 </resources>
