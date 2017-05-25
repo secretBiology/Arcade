@@ -1,4 +1,4 @@
-package com.secretbiology.arcade.player;
+package com.secretbiology.arcade.player.dashboard;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;

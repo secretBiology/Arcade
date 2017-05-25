@@ -1,4 +1,4 @@
-package com.secretbiology.arcade.player;
+package com.secretbiology.arcade.player.dashboard;
 
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;

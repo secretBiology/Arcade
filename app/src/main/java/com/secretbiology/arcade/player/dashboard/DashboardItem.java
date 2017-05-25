@@ -1,4 +1,4 @@
-package com.secretbiology.arcade.player;
+package com.secretbiology.arcade.player.dashboard;
 
 /**
  * Created by Dexter for Arcade .
