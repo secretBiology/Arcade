@@ -42,6 +42,7 @@ public class Dashboard extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
         ButterKnife.bind(this);
+        toolbar.setTitle(R.string.dashboard);
         prefs = new AppPrefs(getApplicationContext());
         itemList = new ArrayList<>();
         setUpItems();

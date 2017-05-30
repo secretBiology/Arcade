@@ -20,7 +20,11 @@
             android:name=".player.dashboard.Dashboard"
             android:label="@string/dashboard"
             android:theme="@style/DashBoardStyle" />
-        <activity android:name=".player.login.Login"></activity>
+        <activity android:name=".player.login.Login" />
+
+        <service
+            android:name=".background.BackgroundService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

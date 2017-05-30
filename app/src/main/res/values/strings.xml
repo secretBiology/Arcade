@@ -10,4 +10,7 @@
     <string name="dashboard_game_played">Games Played</string>
     <string name="dashboard_game_won">Games Won</string>
     <string name="dashboard_number_of_games">No of Games</string>
+
+    <string name="login">Login</string>
+    <string name="password">Password</string>
 </resources>

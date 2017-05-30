@@ -1,6 +1,7 @@
 package com.secretbiology.arcade.common;
 
 import android.app.Activity;
+import android.arch.lifecycle.LifecycleActivity;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -34,7 +35,7 @@ import butterknife.ButterKnife;
  * This will handle navigation, however menu should be inflated in respective child activities.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class BaseActivity extends LifecycleActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private FrameLayout baseLayout;
     private NavigationView navigationView;
@@ -51,7 +52,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         navigationView = ButterKnife.findById(this, R.id.navigation_view);
         drawerLayout = ButterKnife.findById(this, R.id.drawer_layout);
         navigationView.setNavigationItemSelectedListener(this);
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, 0, 0);
         drawerLayout.addDrawerListener(drawerToggle);
         changeHeader();
