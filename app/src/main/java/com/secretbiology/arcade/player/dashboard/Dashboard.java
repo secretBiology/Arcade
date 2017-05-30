@@ -1,6 +1,8 @@
 package com.secretbiology.arcade.player.dashboard;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
@@ -18,7 +20,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.R.string.ok;
+
 public class Dashboard extends BaseActivity {
+
+    public static String ACTION_FIRST_USE = "firstUse";
 
     @BindView(R.id.dashboard_recycler)
     RecyclerView recyclerView;
@@ -49,6 +55,16 @@ public class Dashboard extends BaseActivity {
         adapter = new DashboardAdapter(itemList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        if (getIntent().getAction().equals(ACTION_FIRST_USE)) {
+            new AlertDialog.Builder(Dashboard.this)
+                    .setTitle(getString(R.string.dashboard_welcome))
+                    .setMessage(getString(R.string.dashboard_welcome_note))
+                    .setPositiveButton(ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    }).show();
+        }
     }
 
     private void setUpItems() {

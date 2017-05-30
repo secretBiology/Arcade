@@ -2,7 +2,10 @@ package com.secretbiology.arcade.common;
 
 import android.content.Context;
 
+import com.secretbiology.arcade.player.Player;
 import com.secretbiology.helpers.general.Preferences;
+
+import java.util.Calendar;
 
 /**
  * Created by Dexter for Arcade .
@@ -19,9 +22,29 @@ public class AppPrefs extends Preferences {
     private static String NO_OF_GAMES = "noOfGames";
     private static String GAME_PLAYED = "gamePlayed";
     private static String GAME_WON = "gameWon";
+    private static String LAST_ONLINE = "lastOnline";
+    private static String IS_AUTHENTICATED = "isAuthenticated";
+    private static String MESSAGE_TOKEN = "message_token";
 
     public AppPrefs(Context context) {
         super(context);
+    }
+
+    public void updateInfo(Player player) {
+        setEmail(player.getEmail());
+        setUID(player.getUid());
+        setGamePlayed(player.getGamePlayed());
+        setGameWon(player.getGameWon());
+        setNoOfGames(player.getNoOfGames());
+        setName(player.getName());
+        setProfileIcon(player.getIconID());
+        setSpecies(player.getSpeciesID());
+        if (player.getLastOnline() != 0) {
+            setLastOnline(player.getLastOnline());
+        }
+        if (player.getMessageToken() != null) {
+            setMessageToken(player.getMessageToken());
+        }
     }
 
     public void setEmail(String email) {
@@ -86,5 +109,29 @@ public class AppPrefs extends Preferences {
 
     public int getGameWon() {
         return get(GAME_WON, 0);
+    }
+
+    public void setLastOnline(long time) {
+        put(LAST_ONLINE, time);
+    }
+
+    public long getLastOnline() {
+        return get(LAST_ONLINE, Calendar.getInstance().getTimeInMillis());
+    }
+
+    public void userLoggedIn() {
+        put(IS_AUTHENTICATED, true);
+    }
+
+    public boolean isAuthenticated() {
+        return get(IS_AUTHENTICATED, false);
+    }
+
+    public void setMessageToken(String token) {
+        put(MESSAGE_TOKEN, token);
+    }
+
+    public String getMessageToken() {
+        return getString(MESSAGE_TOKEN);
     }
 }

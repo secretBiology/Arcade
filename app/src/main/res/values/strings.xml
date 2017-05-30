@@ -10,7 +10,13 @@
     <string name="dashboard_game_played">Games Played</string>
     <string name="dashboard_game_won">Games Won</string>
     <string name="dashboard_number_of_games">No of Games</string>
-
+    <string name="dashboard_welcome">Hello!</string>
+    <string name="dashboard_welcome_note">Welcome to the Arcade. We have set up one dummy profile for you.
+        This information will be used while playing games and showing player details.
+        You can customize details like name, profile icon etc from your dashboard. Just click on any property to customize!</string>
     <string name="login">Login</string>
+    <string name="login_screen">Login Screen</string>
     <string name="password">Password</string>
+    <string name="loading">Loading…</string>
+    <string name="oops">Oops…</string>
 </resources>

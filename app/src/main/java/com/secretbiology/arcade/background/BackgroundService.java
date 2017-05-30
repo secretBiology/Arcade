@@ -44,8 +44,8 @@ public class BackgroundService extends IntentService {
         final DatabaseReference myConnectionsRef = database.getReference("online_users");
 
         // stores the timestamp of my last disconnect (the last time I was seen online)
-        //// TODO: 30-05-2017 Change XYZ with UID 
-        final DatabaseReference lastOnlineRef = database.getReference("/users/xyz/lastOnline");
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final DatabaseReference lastOnlineRef = database.getReference("/users/" + userID + "/lastOnline");
 
         final DatabaseReference connectedRef = database.getReference(".info/connected");
         connectedRef.addValueEventListener(new ValueEventListener() {

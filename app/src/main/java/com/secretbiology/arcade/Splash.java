@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.secretbiology.arcade.background.BackgroundService;
+import com.secretbiology.arcade.common.AppPrefs;
 import com.secretbiology.arcade.common.BaseActivity;
 import com.secretbiology.arcade.player.dashboard.Dashboard;
 import com.secretbiology.arcade.player.login.Login;
@@ -15,8 +16,13 @@ public class Splash extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-        startActivity(new Intent(this, Login.class));
-        BackgroundService.updatePresence(getApplicationContext());
+        if (new AppPrefs(getApplicationContext()).isAuthenticated()) {
+            BackgroundService.updatePresence(getApplicationContext());
+            startActivity(new Intent(this, Login.class));
+        } else {
+            startActivity(new Intent(this, Login.class));
+        }
+        finish();
     }
 
     @Override
